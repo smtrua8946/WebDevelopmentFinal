@@ -29,8 +29,6 @@
 	<?php
 		$firstname = filter_input(INPUT_POST, 'firstname');
 		$lastname = filter_input(INPUT_POST, 'lastname');
-		$username = filter_input(INPUT_POST, 'username');
-		$rawpassword = filter_input(INPUT_POST, 'password');
 
 		$host = "localhost";
 		$dbusername = "root";
