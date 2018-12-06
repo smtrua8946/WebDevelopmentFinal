@@ -8,6 +8,24 @@
 		<link rel="stylesheet" href="Finalc.css" >
 	</head>
 	<body>
+	
+	<?php
+	session_start();
+	if(!isset($_SESSION['login']))
+	{
+	header("Location: login.php");
+	}
+	?>
+	
+	<?php
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "webdevdatabase";
+		
+		$conn = mysqli($servername,$username,$password,$dbname);
+	?>
+	
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -22,10 +40,16 @@
 			</div>
 		</nav>
 	<div>
-		<center><strong><h1>SEE THE AVAILABLE PRODUCTS</h1></strong></center>
-		<table>
-			
-		</table>
+		<center><strong><h1>SIGN IN TO SHOP</h1></strong></center>
+		<form action="signin.php" method="post">
+			e-Mail: <input type="text" name="email" placeholder="e-Mail"><br>
+			password: <input type="text" name="password" placeholder="password"><br>
+			<input type="submit" value="Sign In!">
+		</form>
     </div>
+	
+	<?php
+		
+	?>
 	</body>
 </html>

@@ -10,6 +10,14 @@
     
 </head>
 
+<?php
+session_start();
+if(!isset($_SESSION['login']))
+{
+header("Location: login.php");
+}
+?> 
+
 <body>
     <nav class="navbar navbar-inverse">
 		<div class="container-fluid">

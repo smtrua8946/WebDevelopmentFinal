@@ -1,33 +1,68 @@
-<!DOCTYPE html>
+
+<!DOCTYPE HTML>  
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<link rel="stylesheet" href="Finalc.css" >
-	</head>
-	<body>
-		<nav class="navbar navbar-inverse">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a class="navbar-brand" href="#">Soda Shopper</a>
-				</div>
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="Final.html">HOME</a></li>
-					<li class="active"><a href="products.php">PRODUCTS</a></li>
-					<li class="active"><a href="wishlist.php">WISHLIST</a></li>
-					<li class="active"><a href="signin.php">SIGN IN</a></li>
-				</ul>
-			</div>
-		</nav>
-	<div>
-		<center><strong><h1>WISHLIST</h1></strong></center>
-		<table>
-			
-		</table>
-		<ul>
-			<li class="active"><a href="checkout.php">CHECKOUT</a></li>
-		</ul>
-    </div>
+<head>
+<style>
+.error {color: #FF0000;}
+</style>
+</head>
+<body> 
+
+<h1> Select the items to add to your shopping cart</h1>
+
+<?php
+session_start();
+if(!isset($_SESSION['login']))
+{
+header("Location: login.php");
+}
+?>
+
+<form action="wishlist.php" method="post">
+<select name="list">
+<option>Sprite</option>
+<option>Coke</option>
+<option>Cherry Coke</option>
+<option>Fanta Grape</option>
+<option>Fanta Orange</option>
+<option>Mellow Yellow</option>
+<option>Poweraid</option>
+<option>Root Beer</option>
+<option>Vanilla Coke</option>
+<option>Coke Cranberry</option>
+</select>
+<input type="submit" name="submit" value="Get Selected Values" />
+</br>
+<input type="radio" name="amt" value="1">1</input>
+<input type="radio" name="amt" value="12">12</input>
+<p>Stock remaining for this product: <span value="<?php echo $result ?>"></span></p>
+</form>
+
+<?php
+
+$servername= "localhost";
+$username="root";
+$password="";
+$dbName="webdevdatabase";
+
+$conn= new mysqli($servername, $username, $password, $dbName);
+$result="";
+if(isset($_POST['submit'])){
+$selected_val = $_POST['list']; 
+
+$sql="SELECT stock
+	  FROM products
+	  WHERE DrnkName=?;";
+
+$stmt = $conn->prepare($sql);
+$stmt-> bind_param('sd', $selected_val);
+$stmt->execute();
+$stmt->bind_result($result);
+$stmt->fetch();
+
+}
+
+?>
+
+</body>
 </html>
