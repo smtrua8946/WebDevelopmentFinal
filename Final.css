@@ -1,0 +1,54 @@
+.container{
+    position: relative;
+}
+.Slideshow{ 
+    display: none;
+}
+
+.textPlacement{
+    position: absolute;
+    left: 0;
+    bottom: 1;
+}
+.textPlacementFont{
+    font-size: 12px;
+}
+
+.buttonColor{
+    background-color:antiquewhite;
+}
+
+.tbColor{
+    background-color: antiquewhite;
+}
+
+.productSize{
+    height: 400px;
+    width: 100%;
+}
+
+.footer{
+    
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.together{
+    width: 500px;
+    height: 300px;
+}
+
+.marQ{
+    color: crimson;
+}
+
+.holder{
+    padding-right:100px;
+    padding-left:100px;
+    margin-right:auto;
+    margin-left:auto
+}
+
+
+
+

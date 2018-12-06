@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="Final.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="Final.html">Soda Shopper</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="Final.html">Home</a></li>
+                <li class="active"><a href="Products.html">Store</a></li>
+                <li class="active"><a href="Wishlist.php">Wish List</a></li>
+                <li class="active"><a href="login.php">Log In</a> </li>
+            </ul>
+        </div>
+</nav>
+
+<div class="w3-content w3-display-container">
+<div class="w3-display-container Slideshow">
+<img src="Coke.jpg" class="productSize">
+<div class="textPlacement textPlacementFont tbColor">
+Coca Cola <br> Price: Single $.75, Bundle $7.50
+</div>
+</div>
+
+<div class="w3-display-container Slideshow">
+<img src="Fanta_Grape.jpeg" class="productSize">
+<div class="textPlacement textPlacementFont tbColor">
+Fanta Grape <br> Price: Single $.74, Bundle $7.40
+</div>
+</div>
+
+<div class="w3-display-container Slideshow">
+<img src="Fanta_Orange.jpg" class="productSize">
+<div class="textPlacement textPlacementFont tbColor">
+Fanta Orange <br> Price: Single $.90, Bundle $9.00
+</div>
+</div>
+
+<div class="w3-display-container Slideshow">
+<img src="Gatorade.jpg" class="productSize" class="productSize">
+<div class="textPlacement textPlacementFont tbColor">
+Cherry Coke <br> Price: Single $.74, Bundle $7.40
+    </div>
+</div>
+
+<div class="w3-display-container Slideshow">
+<img src="Mellow_Yellow.jpg" class="productSize">
+<div class="textPlacement textPlacementFont tbColor">
+Mellow Yellow <br> Price: Single $.80, Bundle $8.00
+</div>
+</div>
+    
+<div class="w3-display-container Slideshow">
+<img src="Powerade.jpg" class="productSize">
+<div class="textPlacement textPlacementFont tbColor">
+Powerade <br> Price: Single $.79, Bundle $7.90
+</div>
+</div>
+    
+<div class="w3-display-container Slideshow">
+<img src="Root_beer.jpeg" class="productSize">
+<div class="textPlacement textPlacementFont   tbColor">
+Root Beer <br> Price: Single $.60, Bundle $6.00
+</div>
+</div>
+    
+<div class="w3-display-container Slideshow">
+<img src="Sprite.jpg" class="productSize">
+<div class="textPlacement textPlacementFont tbColor">
+Sprite <br> Price: Single $.80, Bundle $8.00
+</div>
+</div>
+    
+<div class="w3-display-container Slideshow">
+<img src="Sprite_Cranberry.jpg" class="productSize">
+<div class="textPlacement textPlacementFont tbColor">
+Sprite Cranberry <br> Price: Single $.70, Bundle $7.00
+</div>
+</div>
+    
+<div class="w3-display-container Slideshow">
+<img src="Vanilla_Coke.jpg" class="productSize">
+<div class="textPlacement textPlacementFont tbColor">
+Vanilla Coke <br> Price: Single $.95, Bundle $9.50
+</div>
+</div>
+
+<div class="footer">
+    <p> Copyright (c) 2018 SodaShopper.com All rights reserved</p>
+</div>o
+
+<button class="w3-button w3-display-left buttonColor" onclick="plusDivs(-1)">&#10094;</button>
+<button class="w3-button w3-display-right buttonColor" onclick="plusDivs(1)">&#10095;</button>
+
+</div>
+
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("Slideshow");
+  if (n > x.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex-1].style.display = "block";  
+}
+</script>
+
+</body>
+</html>
