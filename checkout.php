@@ -10,14 +10,6 @@
     
 </head>
 
-<?php
-session_start();
-if(!isset($_SESSION['login']))
-{
-header("Location: login.php");
-}
-?> 
-
 <body>
     <nav class="navbar navbar-inverse">
 		<div class="container-fluid">
@@ -34,9 +26,24 @@ header("Location: login.php");
 	</nav>
 	<center><strong><h1>CHECKOUT</h1></strong></center>
 	<p>Here are the products that you have ordered:	</p>
+	
+	<div>
+		
+	</div>
+	
+	<div>
+		<form>
+		e-Mail:<br>
+		<input type="text" name="email"><br>
+		Credit Card Number:<br>
+		<input type="text" name="creditnum">
+		</form>
+	</div>
+	
+	
 	<?php
-		$firstname = filter_input(INPUT_POST, 'firstname');
-		$lastname = filter_input(INPUT_POST, 'lastname');
+		$email = filter_input(INPUT_POST, 'email');
+		$creditcardnumber = filter_input(INPUT_POST, 'creditnum');
 
 		$host = "localhost";
 		$dbusername = "root";
@@ -49,10 +56,14 @@ header("Location: login.php");
 			die('Connect Error (' . mysqli_connect_errno()) . ')' . mysqli_connect_error();
 		} else { 
 
-			$passwordhash = hash('sha256', $rawpassword);
-
-			$sql = "INSERT INTO iarenadbtable (firstname, lastname, username, password)
-			values ('$firstname', '$lastname', '$username', '$passwordhash')";
+		$sql = "SELECT availablefunds,loginstatus FROM customerinformation WHERE creditcard = '$creditnum' AND email = '$email'";
+		
+		$row = $sql->execute() {
+			echo "<p> Here are your available funds: ".$row["$availablefunds"]." </p>";
+			$funds = $row["$availablefunds"];
+		}			
+			
+			$sql = "UPDATE customerinformation VALUES availablefunds = '$funds' WHERE (creditcard = '$creditnum' AND email = '$email')";
 			if ($conn->query($sql)) {
 				echo "new record inserted";
 			} else {
